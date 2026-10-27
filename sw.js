@@ -1,8 +1,8 @@
 /* global __FILES__ */
 // Offline cache for the standalone Útikész app. The build fills in the
 // version and the file list (see offlineServiceWorker in vite.config.ts).
-const CACHE = "utikesz-49b3e1f29a93";
-const FILES = ["./","apple-touch-icon.png","assets/bricolage-grotesque-latin-ext-wght-normal-CcLUaPy7.woff2","assets/bricolage-grotesque-latin-wght-normal-DLoelf7F.woff2","assets/bricolage-grotesque-vietnamese-wght-normal-BUzh504Q.woff2","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/index-DZIUzSYu.js","assets/index-wzsFjuiY.css","icon-192.png","icon-512.png","icon.svg","manifest.webmanifest"];
+const CACHE = "utikesz-aa04630910c6";
+const FILES = ["./","apple-touch-icon.png","assets/bricolage-grotesque-latin-ext-wght-normal-CcLUaPy7.woff2","assets/bricolage-grotesque-latin-wght-normal-DLoelf7F.woff2","assets/bricolage-grotesque-vietnamese-wght-normal-BUzh504Q.woff2","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/index--CG_DeUd.css","assets/index-xVtHSKNi.js","icon-192.png","icon-512.png","icon.svg","manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
