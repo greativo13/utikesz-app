@@ -42,6 +42,14 @@
           15px/1.5 system-ui,
           sans-serif;
       }
+      #boot-retry {
+        padding: 12px 22px;
+        border: 0;
+        border-radius: 12px;
+        background: #3c6650;
+        color: #fff;
+        font: 600 16px system-ui, sans-serif;
+      }
       @media (prefers-color-scheme: dark) {
         html,
         body {
@@ -52,10 +60,90 @@
         }
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-CpXtXdfZ.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-5pTwF4mg.css">
+    <script type="module" crossorigin src="./assets/index-DQxlbuqa.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BZG_7KMv.css">
   </head>
   <body>
     <div id="app"><p class="boot">Útikész betöltése…</p></div>
+    <script>
+      // Safety net: if the app does not start (e.g. a cached page points to
+      // files the server no longer has), clear the offline copy and reload
+      // once; after that, offer a button. Saved trips are not touched.
+      (function () {
+        var KEY = "utikesz-boot-retry";
+        function booted() {
+          var app = document.getElementById("app");
+          return app && !app.querySelector(".boot");
+        }
+        function clearOffline() {
+          var jobs = [];
+          if (window.caches)
+            jobs.push(
+              caches.keys().then(function (keys) {
+                return Promise.all(
+                  keys
+                    .filter(function (k) {
+                      return k !== "utikesz-tiles";
+                    })
+                    .map(function (k) {
+                      return caches.delete(k);
+                    }),
+                );
+              }),
+            );
+          if (navigator.serviceWorker)
+            jobs.push(
+              navigator.serviceWorker.getRegistrations().then(function (rs) {
+                return Promise.all(
+                  rs.map(function (r) {
+                    return r.unregister();
+                  }),
+                );
+              }),
+            );
+          return Promise.all(jobs).catch(function () {});
+        }
+        function rescue() {
+          if (booted()) return;
+          var tried = "";
+          try {
+            tried = sessionStorage.getItem(KEY) || "";
+          } catch (e) {}
+          if (!tried) {
+            try {
+              sessionStorage.setItem(KEY, "1");
+            } catch (e) {}
+            clearOffline().then(function () {
+              location.reload();
+            });
+            return;
+          }
+          var app = document.getElementById("app");
+          app.innerHTML =
+            '<p class="boot">Az Útikész nem indult el.<br>Az adataid megvannak.<br><br><button id="boot-retry">Újraindítás</button></p>';
+          document.getElementById("boot-retry").onclick = function () {
+            clearOffline().then(function () {
+              location.reload();
+            });
+          };
+        }
+        window.addEventListener(
+          "error",
+          function (e) {
+            var t = e.target;
+            if (t && (t.tagName === "SCRIPT" || t.tagName === "LINK"))
+              setTimeout(rescue, 1500);
+          },
+          true,
+        );
+        setTimeout(rescue, 8000);
+        setTimeout(function () {
+          if (booted())
+            try {
+              sessionStorage.removeItem(KEY);
+            } catch (e) {}
+        }, 9000);
+      })();
+    </script>
   </body>
 </html>
