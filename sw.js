@@ -1,8 +1,8 @@
 /* global __FILES__ */
 // Offline cache for the standalone Útikész app. The build fills in the
 // version and the file list (see offlineServiceWorker in vite.config.ts).
-const CACHE = "utikesz-24592cd941c6";
-const FILES = ["./","apple-touch-icon.png","assets/bricolage-grotesque-latin-ext-wght-normal-CcLUaPy7.woff2","assets/bricolage-grotesque-latin-wght-normal-DLoelf7F.woff2","assets/bricolage-grotesque-vietnamese-wght-normal-BUzh504Q.woff2","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/index-Bwnpj_bb.css","assets/index-CwXOlXT0.js","assets/leaflet-src-DeXYnRK-.js","assets/pdf-DmfLJ0yM.js","assets/pdf.worker.min-BqiJti1S.js","assets/pdf.worker.min-rsCePomN.mjs","icon-192.png","icon-512.png","icon.svg","manifest.webmanifest"];
+const CACHE = "utikesz-4de0e76c4bd1";
+const FILES = ["./","apple-touch-icon.png","assets/BricolageGrotesque-Bold-BIJrwikb.ttf","assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/bricolage-grotesque-latin-ext-wght-normal-CcLUaPy7.woff2","assets/bricolage-grotesque-latin-wght-normal-DLoelf7F.woff2","assets/bricolage-grotesque-vietnamese-wght-normal-BUzh504Q.woff2","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/globals-Cj7qmh5F.css","assets/globals-stZx1eRe.js","assets/index-BC40CHhN.css","assets/index-CP1LPZFV.js","assets/leaflet-src-lAbA6mXR.js","assets/pdf-B-pENW75.js","assets/pdf.worker.min-BSO9jRIL.js","assets/pdf.worker.min-rsCePomN.mjs","assets/szervezo-Hld-lAoC.js","assets/szervezo-aSDPiFKi.css","icon-192.png","icon-512.png","icon.svg","manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
