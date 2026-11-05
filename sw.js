@@ -1,8 +1,8 @@
 /* global __FILES__ */
 // Offline cache for the standalone Útikész app. The build fills in the
 // version and the file list (see offlineServiceWorker in vite.config.ts).
-const CACHE = "utikesz-671ec9f80f5d";
-const FILES = ["./","apple-touch-icon.png","assets/BricolageGrotesque-Bold-BIJrwikb.ttf","assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/bricolage-grotesque-latin-ext-wght-normal-CcLUaPy7.woff2","assets/bricolage-grotesque-latin-wght-normal-DLoelf7F.woff2","assets/bricolage-grotesque-vietnamese-wght-normal-BUzh504Q.woff2","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/globals-BB4GsxsW.css","assets/globals-DkRzT2hg.js","assets/index-D-UNLqob.js","assets/index-D4zXa1mT.css","assets/leaflet-src-BX5cieg8.js","assets/pdf-BIDrWrt8.js","assets/pdf.worker.min-BSO9jRIL.js","assets/pdf.worker.min-rsCePomN.mjs","assets/szervezo-B93O2Mll.css","assets/szervezo-DeVo0uQX.js","icon-192.png","icon-512.png","icon.svg","manifest.webmanifest"];
+const CACHE = "utikesz-f14dc38828d4";
+const FILES = ["./","apple-touch-icon.png","assets/BricolageGrotesque-Bold-BIJrwikb.ttf","assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/bricolage-grotesque-latin-ext-wght-normal-CcLUaPy7.woff2","assets/bricolage-grotesque-latin-wght-normal-DLoelf7F.woff2","assets/bricolage-grotesque-vietnamese-wght-normal-BUzh504Q.woff2","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/globals-DQwP49ZM.css","assets/globals-DmGf81Nr.js","assets/index-DBBLomc8.css","assets/index-gtWGjPyK.js","assets/leaflet-src-CDpHvpg8.js","assets/pdf-Dngo5Wx8.js","assets/pdf.worker.min-BSO9jRIL.js","assets/pdf.worker.min-rsCePomN.mjs","assets/szervezo-CgkavGfB.js","assets/szervezo-DGK3vVD8.css","icon-192.png","icon-512.png","icon.svg","manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
