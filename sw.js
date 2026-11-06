@@ -1,8 +1,8 @@
 /* global __FILES__ */
 // Offline cache for the standalone Útikész app. The build fills in the
 // version and the file list (see offlineServiceWorker in vite.config.ts).
-const CACHE = "utikesz-98d0c300907c";
-const FILES = ["./","apple-touch-icon-szervezo.png","apple-touch-icon.png","assets/BricolageGrotesque-Bold-BIJrwikb.ttf","assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/bricolage-grotesque-latin-ext-wght-normal-CcLUaPy7.woff2","assets/bricolage-grotesque-latin-wght-normal-DLoelf7F.woff2","assets/bricolage-grotesque-vietnamese-wght-normal-BUzh504Q.woff2","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/globals-DBTIyDB0.css","assets/globals-YILss7NG.js","assets/index-Cu9prKf4.js","assets/index-DBBLomc8.css","assets/leaflet-src-7-jjGmfC.js","assets/pdf-CX_a6Y_c.js","assets/pdf.worker.min-BSO9jRIL.js","assets/pdf.worker.min-rsCePomN.mjs","assets/szervezo-BO9Hib5i.js","assets/szervezo-yHV7zitB.css","icon-192.png","icon-512.png","icon-szervezo-192.png","icon-szervezo-512.png","icon-szervezo.svg","icon.svg","manifest-szervezo.webmanifest","manifest.webmanifest","utikesz-utmutato.pdf"];
+const CACHE = "utikesz-f113efec585c";
+const FILES = ["./","apple-touch-icon-szervezo.png","apple-touch-icon.png","assets/BricolageGrotesque-Bold-BIJrwikb.ttf","assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/bricolage-grotesque-latin-ext-wght-normal-CcLUaPy7.woff2","assets/bricolage-grotesque-latin-wght-normal-DLoelf7F.woff2","assets/bricolage-grotesque-vietnamese-wght-normal-BUzh504Q.woff2","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/globals-DBTIyDB0.css","assets/globals-YILss7NG.js","assets/index-Cu9prKf4.js","assets/index-DBBLomc8.css","assets/leaflet-src-7-jjGmfC.js","assets/pdf-CX_a6Y_c.js","assets/pdf.worker.min-BSO9jRIL.js","assets/pdf.worker.min-rsCePomN.mjs","assets/szervezo-BO9Hib5i.js","assets/szervezo-yHV7zitB.css","icon-192.png","icon-512.png","icon-szervezo-192.png","icon-szervezo-512.png","icon-szervezo.svg","icon.svg","index.html","manifest-szervezo.webmanifest","manifest.webmanifest","szervezo.html","utikesz-utmutato.pdf"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -72,8 +72,14 @@ self.addEventListener("fetch", (event) => {
       // Opening the app: the newest page when the network answers quickly,
       // else the cached one, so it starts without internet too.
       if (request.mode === "navigate") {
-        const cached =
-          (await cache.match("./")) || (await cache.match("./index.html"));
+        // Each entry point needs its own offline page. Drop tracking/query
+        // parameters, and resolve the scope root to the client entry point.
+        const pageUrl = new URL(request.url);
+        pageUrl.search = "";
+        pageUrl.hash = "";
+        if (pageUrl.pathname === new URL(self.registration.scope).pathname)
+          pageUrl.pathname += "index.html";
+        const cached = await cache.match(pageUrl.href);
         try {
           const fresh = await Promise.race([
             fetch(request, { cache: "no-cache" }),
@@ -91,3 +97,4 @@ self.addEventListener("fetch", (event) => {
     })(),
   );
 });
+
