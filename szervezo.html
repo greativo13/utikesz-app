@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hu">
+<html lang="hu" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -28,6 +28,22 @@
     <link rel="manifest" href="./manifest-szervezo.webmanifest" />
     <link rel="icon" href="./brand-logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="./apple-touch-icon-szervezo.png" />
+    <script>
+      // Resolve the saved choice before first paint; new users start in light mode.
+      (() => {
+        let theme = "light";
+        try {
+          const saved = localStorage.getItem("utikesz-theme");
+          if (["light", "dark", "system"].includes(saved)) theme = saved;
+        } catch {}
+        if (theme === "system") delete document.documentElement.dataset.theme;
+        else document.documentElement.dataset.theme = theme;
+        const dark = theme === "dark" ||
+          (theme === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.querySelectorAll('meta[name="theme-color"]').forEach(meta =>
+          meta.setAttribute("content", dark ? "#17251d" : "#fbf5e9"));
+      })();
+    </script>
     <style>
       html,
       body {
@@ -50,18 +66,16 @@
         color: #fff;
         font: 600 16px system-ui, sans-serif;
       }
+      body { background: inherit; }
+      html[data-theme="dark"] { background: #17251d; }
+      html[data-theme="dark"] .boot { color: #a5ad9f; }
       @media (prefers-color-scheme: dark) {
-        html,
-        body {
-          background: #17251d;
-        }
-        .boot {
-          color: #a5ad9f;
-        }
+        html:not([data-theme]) { background: #17251d; }
+        html:not([data-theme]) .boot { color: #a5ad9f; }
       }
     </style>
-    <script type="module" crossorigin src="./assets/szervezo-DAwsN-oG.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/brand-BTJPvrmN.js">
+    <script type="module" crossorigin src="./assets/szervezo-CSsoS_XP.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/brand-CQqJfvVc.js">
     <link rel="stylesheet" crossorigin href="./assets/brand-B3PtjvlO.css">
     <link rel="stylesheet" crossorigin href="./assets/szervezo-yHV7zitB.css">
   </head>

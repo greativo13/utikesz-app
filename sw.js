@@ -1,8 +1,8 @@
 /* global __FILES__ */
 // Offline cache for the standalone Útikész app. The build fills in the
 // version and the file list (see offlineServiceWorker in vite.config.ts).
-const CACHE = "utikesz-1267eeb93c59";
-const FILES = ["./","apple-touch-icon-szervezo.png","apple-touch-icon.png","assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/SourceSerif4-Regular-IpLKW43r.ttf","assets/brand-B3PtjvlO.css","assets/brand-BTJPvrmN.js","assets/brand-DDWDFz1J.png","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/index-DBBLomc8.css","assets/index-DM70esdB.js","assets/leaflet-src-WjMWmwJQ.js","assets/pdf-BARRpCHL.js","assets/pdf.worker.min-BSO9jRIL.js","assets/pdf.worker.min-rsCePomN.mjs","assets/szervezo-DAwsN-oG.js","assets/szervezo-yHV7zitB.css","brand-logo.png","icon-192.png","icon-512.png","icon-szervezo-192.png","icon-szervezo-512.png","icon-szervezo.svg","icon.svg","index.html","manifest-szervezo.webmanifest","manifest.webmanifest","szervezo.html","utikesz-utmutato.pdf"];
+const CACHE = "utikesz-a46cdbb188da";
+const FILES = ["./","apple-touch-icon-szervezo.png","apple-touch-icon.png","assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/SourceSerif4-Regular-IpLKW43r.ttf","assets/brand-B3PtjvlO.css","assets/brand-CQqJfvVc.js","assets/brand-logo-DDWDFz1J.png","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/index-BG96xttG.js","assets/index-DBBLomc8.css","assets/leaflet-src-oWeLSUd2.js","assets/pdf-CnmyXDas.js","assets/pdf.worker.min-BSO9jRIL.js","assets/pdf.worker.min-rsCePomN.mjs","assets/szervezo-CSsoS_XP.js","assets/szervezo-yHV7zitB.css","brand-logo.png","icon-192.png","icon-512.png","icon-szervezo-192.png","icon-szervezo-512.png","icon-szervezo.svg","icon.svg","index.html","manifest-szervezo.webmanifest","manifest.webmanifest","szervezo.html","utikesz-utmutato.pdf"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
