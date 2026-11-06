@@ -1,15 +1,15 @@
 {
   "id": "./szervezo.html",
-  "name": "Útikész Ajánlatkészítő",
+  "name": "Utikész Ajánlatkészítő",
   "short_name": "Ajánlatkészítő",
   "lang": "hu",
   "start_url": "./szervezo.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f7f8f4",
-  "theme_color": "#b4693a",
+  "background_color": "#fbf5e9",
+  "theme_color": "#0d3520",
   "icons": [
     { "src": "icon-szervezo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icon-szervezo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "icon-szervezo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }

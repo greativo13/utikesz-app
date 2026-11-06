@@ -6,19 +6,19 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>Ajánlatkészítő – Útikész</title>
+    <title>Ajánlatkészítő – Utikész</title>
     <meta
       name="description"
       content="Utazási ajánlatok és árajánlatok készítése szervezőknek."
     />
     <meta
       name="theme-color"
-      content="#f7f8f4"
+      content="#fbf5e9"
       media="(prefers-color-scheme: light)"
     />
     <meta
       name="theme-color"
-      content="#2a2c25"
+      content="#17251d"
       media="(prefers-color-scheme: dark)"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -26,12 +26,12 @@
     <meta name="apple-mobile-web-app-title" content="Ajánlatkészítő" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="manifest" href="./manifest-szervezo.webmanifest" />
-    <link rel="icon" href="./icon-szervezo.svg" type="image/svg+xml" />
+    <link rel="icon" href="./brand-logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="./apple-touch-icon-szervezo.png" />
     <style>
       html,
       body {
-        background: #f7f8f4;
+        background: #fbf5e9;
         margin: 0;
       }
       .boot {
@@ -53,16 +53,16 @@
       @media (prefers-color-scheme: dark) {
         html,
         body {
-          background: #2a2c25;
+          background: #17251d;
         }
         .boot {
           color: #a5ad9f;
         }
       }
     </style>
-    <script type="module" crossorigin src="./assets/szervezo-1H_m7tjN.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/globals-Cc92rji0.js">
-    <link rel="stylesheet" crossorigin href="./assets/globals-DBTIyDB0.css">
+    <script type="module" crossorigin src="./assets/szervezo-DAwsN-oG.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/brand-BTJPvrmN.js">
+    <link rel="stylesheet" crossorigin href="./assets/brand-B3PtjvlO.css">
     <link rel="stylesheet" crossorigin href="./assets/szervezo-yHV7zitB.css">
   </head>
   <body>
@@ -122,7 +122,7 @@
           }
           var app = document.getElementById("app");
           app.innerHTML =
-            '<p class="boot">Az Útikész nem indult el.<br>Az adataid megvannak.<br><br><button id="boot-retry">Újraindítás</button></p>';
+            '<p class="boot">Az Utikész nem indult el.<br>Az adataid megvannak.<br><br><button id="boot-retry">Újraindítás</button></p>';
           document.getElementById("boot-retry").onclick = function () {
             clearOffline().then(function () {
               location.reload();
