@@ -1,8 +1,41 @@
-/* global __FILES__ */
+/* global __FILES__, __PAGES__ */
 // Offline cache for the standalone Útikész app. The build fills in the
 // version and the file list (see offlineServiceWorker in vite.config.ts).
-const CACHE = "utikesz-eb87b593a3e7";
-const FILES = ["./","apple-touch-icon-szervezo.png","apple-touch-icon-utikesz-24cedddb5799.png","apple-touch-icon-utikesz-49a2801fb332.png","apple-touch-icon-utikesz-vilagos.png","apple-touch-icon.png","assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/SourceSerif4-Regular-IpLKW43r.ttf","assets/brand-Bzz4veXy.png","assets/brand-eHrCpvsa.css","assets/brand-fRTJ9HH1.js","assets/brand-logo-BQsKz8LV.png","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/honlap-BZ-z_JUU.js","assets/honlap-CNcpct4E.css","assets/index-DBBLomc8.css","assets/index-Meq4OrLG.js","assets/jsx-runtime-BFL8nrA6.js","assets/leaflet-src-Dzs1SUxv.js","assets/muhely-Bq9rW21Z.css","assets/muhely-CZrxKHiM.js","assets/pdf-CoHFPnIS.js","assets/pdf.worker.min-Cv1U6N_d.js","assets/pdf.worker.min-rsCePomN.mjs","assets/site-model-71Zw8grr.js","assets/studio-DEP6O7-F.js","assets/studio-yHV7zitB.css","assets/szervezo-DMxiHhPL.js","brand-logo.png","honlap.html","icon-192.png","icon-512.png","icon-szervezo-192.png","icon-szervezo-512.png","icon-szervezo.svg","icon.svg","index.html","manifest-szervezo.webmanifest","manifest.webmanifest","muhely.html","site-Figtree-Regular.ttf","site-Figtree-SemiBold.ttf","site-SourceSerif4-Regular.ttf","site-app-packing.jpg","site-app-places.jpg","site-hero-athens.png","site-hero-cafe.png","site-krakko-cover.webp","site-krakko-preview-programs.webp","site-krakko-preview-sights.webp","site-utikesz-krakko-karacsony-betekinto.pdf","site-utikesz-logo-short-u.png","site.css","szervezo.html","utikesz-utmutato.pdf"];
+const CACHE = "utikesz-039f5cfb365a";
+const FILES = ["./","apple-touch-icon-utikesz.png","assets/SourceSerif4-Regular-IpLKW43r.ttf","assets/brand--MRyjKZ8.css","assets/brand-BqAecsio.js","assets/brand-logo-BQsKz8LV.png","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/index-CuHElmtS.css","assets/index-n3QseNIs.js","assets/jsx-runtime-BFL8nrA6.js","assets/leaflet-src-Dzs1SUxv.js","assets/pdf-Ddl2ZVIk.js","assets/pdf.worker.min-Cv1U6N_d.js","assets/pdf.worker.min-rsCePomN.mjs","brand-logo.png","icon-192.png","icon-512.png","icon.svg","index.html","manifest.webmanifest"];
+// The other pages (offer studio, website, workshop) and their files. They
+// are not downloaded with the phone app, only once someone opens them.
+const PAGES = {"szervezo.html":["apple-touch-icon-szervezo.png","assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/brand-Bzz4veXy.png","assets/studio-C8qfLqhA.js","assets/studio-yHV7zitB.css","assets/szervezo-BNzjL_ri.js","icon-szervezo-192.png","icon-szervezo-512.png","icon-szervezo.svg","manifest-szervezo.webmanifest"],"honlap.html":["assets/honlap-CNcpct4E.css","assets/honlap-sYArSfUV.js","assets/site-model-BpX5QFIU.js","site-Figtree-Regular.ttf","site-Figtree-SemiBold.ttf","site-SourceSerif4-Regular.ttf","site-app-packing.jpg","site-app-places.jpg","site-hero-athens.webp","site-hero-cafe.webp","site-krakko-cover.webp","site-krakko-preview-programs.webp","site-krakko-preview-sights.webp","site-utikesz-logo.png","site.css"],"muhely.html":["assets/Figtree-Bold-CnuFHRRE.ttf","assets/Figtree-Regular-VtLqxhSM.ttf","assets/Figtree-SemiBold-B0xMtDcJ.ttf","assets/brand-Bzz4veXy.png","assets/muhely-Bq9rW21Z.css","assets/muhely-Di4e741l.js","assets/site-model-BpX5QFIU.js","assets/studio-C8qfLqhA.js","assets/studio-yHV7zitB.css"]};
+
+// Saves a page and its files for offline use; a failed file is skipped.
+async function keepPage(name) {
+  const files = PAGES[name];
+  if (!files) return;
+  const cache = await caches.open(CACHE);
+  for (const file of [name, ...files]) {
+    const url = new URL(file, self.registration.scope).href;
+    try {
+      if (await cache.match(url)) continue;
+      const response = await fetch(new Request(url, { cache: "reload" }));
+      if (response.ok) await cache.put(url, response);
+    } catch {}
+  }
+}
+// Pages this phone already kept in an older version stay available.
+async function keptPages() {
+  const names = [];
+  for (const key of await caches.keys()) {
+    if (!key.startsWith("utikesz-") || key === CACHE || key === TILES) continue;
+    const old = await caches.open(key);
+    for (const name of Object.keys(PAGES))
+      if (
+        !names.includes(name) &&
+        (await old.match(new URL(name, self.registration.scope).href))
+      )
+        names.push(name);
+  }
+  return names;
+}
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -13,6 +46,11 @@ self.addEventListener("install", (event) => {
       .then((cache) =>
         cache.addAll(FILES.map((file) => new Request(file, { cache: "reload" }))),
       )
+      .then(async () => {
+        try {
+          for (const name of await keptPages()) await keepPage(name);
+        } catch {}
+      })
       .then(() => self.skipWaiting()),
   );
 });
@@ -85,7 +123,11 @@ self.addEventListener("fetch", (event) => {
             fetch(request, { cache: "no-cache" }),
             new Promise((_, reject) => setTimeout(reject, cached ? 3000 : 15000)),
           ]);
-          if (fresh.ok) return fresh;
+          if (fresh.ok) {
+            const name = pageUrl.pathname.split("/").pop();
+            if (PAGES[name] && event.waitUntil) event.waitUntil(keepPage(name));
+            return fresh;
+          }
         } catch {}
         return cached || fetch(request);
       }
