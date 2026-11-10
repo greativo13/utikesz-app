@@ -1,7 +1,7 @@
 /* global __FILES__, __PAGES__ */
 // Offline cache for the standalone Útikész app. The build fills in the
 // version and the file list (see offlineServiceWorker in vite.config.ts).
-const CACHE = "utikesz-039f5cfb365a";
+const CACHE = "utikesz-581aeaf12ef7";
 const FILES = ["./","apple-touch-icon-utikesz.png","assets/SourceSerif4-Regular-IpLKW43r.ttf","assets/brand--MRyjKZ8.css","assets/brand-BqAecsio.js","assets/brand-logo-BQsKz8LV.png","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/index-CuHElmtS.css","assets/index-n3QseNIs.js","assets/jsx-runtime-BFL8nrA6.js","assets/leaflet-src-Dzs1SUxv.js","assets/pdf-Ddl2ZVIk.js","assets/pdf.worker.min-Cv1U6N_d.js","assets/pdf.worker.min-rsCePomN.mjs","brand-logo.png","icon-192.png","icon-512.png","icon.svg","index.html","manifest.webmanifest"];
 // The other pages (offer studio, website, workshop) and their files. They
 // are not downloaded with the phone app, only once someone opens them.
