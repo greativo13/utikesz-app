@@ -18,7 +18,7 @@
   .csali li{position:relative;padding-left:30px;font-size:16px;line-height:1.5;color:var(--ink)}
   .csali li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--gold)}
   .csali .borito{width:100%;max-width:420px;border-radius:10px;box-shadow:0 18px 40px rgba(13,53,32,.18);display:block}
-  .csali .urlap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px 8px;margin-top:28px}
+  .csali .urlap{margin-top:28px;min-height:420px}
   .csali .apro{font-size:13px;line-height:1.55;color:var(--muted);margin-top:16px}
   .csali .apro a{color:var(--ink)}
 </style>
@@ -40,12 +40,16 @@
       <li>Időtartamok, belépők, tippek és egy B terv hideg időre</li>
     </ul>
     <div class="urlap">
-      <iframe data-tally-src="https://tally.so/embed/4aJKLo?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0" title="Krakkó egy nap alatt – ingyenes útvonal"></iframe>
+      <div class="ml-embedded" data-form="WwIcEm"></div>
     </div>
-    <p class="apro">4 oldalas PDF, telefonon és nyomtatva is olvasható. Az űrlapot a Tally szolgáltatja. Az adatkezelésről az <a href="./adatvedelem.html">adatkezelési tájékoztatóban</a> olvashatsz. Az Útikész tervet és információt ad, a szállást, a jegyeket és a programokat te foglalod le.</p>
+    <p class="apro">4 oldalas PDF, telefonon és nyomtatva is olvasható. Az űrlapot és a leveleket a MailerLite szolgáltatja. Az adatkezelésről az <a href="./adatvedelem.html">adatkezelési tájékoztatóban</a> olvashatsz. Az Útikész tervet és információt ad, a szállást, a jegyeket és a programokat te foglalod le.</p>
   </div>
 </main>
 <footer class="wrap footer"><a class="brand" href="./honlap.html"><img src="./site-utikesz-logo.png" alt=""><span>Útikész</span></a><p class="legal-links"><a href="./aszf.html">ÁSZF</a> · <a href="./adatvedelem.html">Adatkezelési tájékoztató</a> · <a href="./impresszum.html">Impresszum</a></p><small>© 2026 Útikész</small></footer>
-<script src="https://tally.so/widgets/embed.js" async onload="Tally.loadEmbeds()"></script>
+<!-- MailerLite: az univerzális kód tölti be a beágyazott űrlapot (data-form="WwIcEm"). -->
+<script>
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '2787162');
+</script>
 </body>
 </html>
