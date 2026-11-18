@@ -27,14 +27,15 @@
 .demo-tick{position:absolute;width:5.4%;aspect-ratio:1;border-radius:3px;background:var(--ink);opacity:0;transform:scale(.4)}
 .demo-tick::after{content:"";position:absolute;left:32%;top:14%;width:28%;height:52%;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
 @media (prefers-reduced-motion:no-preference){
-.app-images figure{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}.app-images figure+figure{transition-delay:.18s}.app-images.in-view figure{opacity:1;transform:none}
+.app-images figure{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}.app-images figure+figure{transition-delay:.18s}.app-images.in-view figure{opacity:1;transform:none}}
 .in-view .demo-pdf{animation:demoPdf 10s ease-in-out infinite .8s}.in-view .demo-import .demo-screen{animation:demoApp 10s ease-in-out infinite .8s}.in-view .demo-import .demo-toast{animation:demoToast 10s ease-in-out infinite .8s}
 .in-view .demo-tick{animation:demoTick 10s ease-out infinite}.in-view .demo-pack .demo-toast{animation:demoToast2 10s ease-in-out infinite}
 @keyframes demoPdf{0%{opacity:1;transform:none}22%{opacity:1;transform:none}36%{opacity:0;transform:translateY(-18%) scale(.55)}100%{opacity:0;transform:translateY(-18%) scale(.55)}}
 @keyframes demoApp{0%,24%{opacity:0;transform:translateY(10%)}40%{opacity:1;transform:none}100%{opacity:1;transform:none}}
 @keyframes demoToast{0%,40%{opacity:0;transform:translateY(12px)}46%,82%{opacity:1;transform:none}90%,100%{opacity:0;transform:translateY(12px)}}
 @keyframes demoTick{0%,18%{opacity:0;transform:scale(.4)}22%{opacity:1;transform:scale(1.15)}25%,88%{opacity:1;transform:none}94%,100%{opacity:0;transform:none}}
-@keyframes demoToast2{0%,62%{opacity:0;transform:translateY(12px)}68%,86%{opacity:1;transform:none}92%,100%{opacity:0;transform:translateY(12px)}}}</style>  <script type="module" crossorigin src="./assets/honlap-BVEVqpqY.js"></script>
+@keyframes demoToast2{0%,62%{opacity:0;transform:translateY(12px)}68%,86%{opacity:1;transform:none}92%,100%{opacity:0;transform:translateY(12px)}}
+@media (prefers-reduced-motion:reduce){.demo-pdf,.demo-screen,.demo-toast,.demo-tick{transform:none!important}}</style>  <script type="module" crossorigin src="./assets/honlap-BVEVqpqY.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-BFL8nrA6.js">
   <link rel="modulepreload" crossorigin href="./assets/site-model-BpX5QFIU.js">
   <link rel="stylesheet" crossorigin href="./assets/honlap-CNcpct4E.css">
