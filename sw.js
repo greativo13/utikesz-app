@@ -1,7 +1,7 @@
 /* global __FILES__, __PAGES__ */
 // Offline cache for the standalone Útikész app. The build fills in the
 // version and the file list (see offlineServiceWorker in vite.config.ts).
-const CACHE = "utikesz-14f3a4b94g102";
+const CACHE = "utikesz-14f3a4b94g102v";
 const FILES = ["./","apple-touch-icon-utikesz.png","assets/SourceSerif4-Regular-IpLKW43r.ttf","assets/brand-2Wxug102.js","assets/brand-hJuW3XAW.css","assets/brand-logo-FUcf9O6A.png","assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2","assets/figtree-latin-wght-normal-D_ZTVpCC.woff2","assets/index-CuHElmtS.css","assets/index-D1AQg102.js","assets/jsx-runtime-BFL8nrA6.js","assets/leaflet-src-Dzs1SUxv.js","assets/pdf-MQEMg102.js","assets/pdf.worker.min-Cv1U6N_d.js","assets/pdf.worker.min-rsCePomN.mjs","brand-logo.png","icon-192.png","icon-512.png","icon.svg","index.html","manifest.webmanifest"];
 // The other pages (offer studio, website, workshop) and their files. They
 // are not downloaded with the phone app, only once someone opens them.
@@ -101,7 +101,12 @@ self.addEventListener("fetch", (event) => {
   }
   if (
     request.method !== "GET" ||
-    new URL(request.url).origin !== location.origin
+    new URL(request.url).origin !== location.origin ||
+    // Videos are fetched in byte ranges (206), which the cache cannot store;
+    // answering them here broke the website's demo video. The network serves them.
+    request.headers.has("range") ||
+    request.destination === "video" ||
+    request.destination === "audio"
   )
     return;
   event.respondWith(
@@ -134,7 +139,7 @@ self.addEventListener("fetch", (event) => {
       const cached = await cache.match(request);
       if (cached) return cached;
       const response = await fetch(request);
-      if (response.ok) await cache.put(request, response.clone());
+      if (response.status === 200) await cache.put(request, response.clone()).catch(() => {});
       return response;
     })(),
   );
