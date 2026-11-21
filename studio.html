@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Stúdió</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Stúdió">
 <meta name="theme-color" content="#0d3520">
 <link rel="icon" href="./studio-ikon-192.png" type="image/png">
@@ -12,7 +14,7 @@
 <link rel="apple-touch-icon" sizes="152x152" href="./studio-ikon-152.png">
 <link rel="apple-touch-icon" sizes="167x167" href="./studio-ikon-167.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./studio-ikon-180.png">
-<link rel="manifest" href="./manifest-studio.webmanifest?v=2">
+<link rel="manifest" href="./manifest-studio.webmanifest?v=3">
 <style>
   body { margin:0; min-height:100vh; display:grid; place-items:center; background:#0d3520; color:#f3ead8;
          font:16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; text-align:center; padding:24px; box-sizing:border-box; }
@@ -30,9 +32,9 @@
 <main>
   <img src="./icon-studio-512.png" alt="">
   <h1>Útikész Tartalomstúdió</h1>
-  <p id="uzenet">Megnyitás folyamatban…</p>
+  <p id="uzenet">Koppints a Megnyitás gombra.</p>
   <a class="gomb" href="https://claude.ai/artifact/NCpvo3PnQ3RqNpRcv4w6VD">Megnyitás</a>
-  <div class="tipp" id="tipp" hidden>
+  <div class="tipp" id="tipp">
     <b>Kitétel a kezdőképernyőre</b><br>
     iPad: Safari → Megosztás (négyzet nyíllal) → <i>Főképernyőhöz adás</i>.<br>
     Android: Chrome → ⋮ menü → <i>Hozzáadás a kezdőképernyőhöz</i>.<br>
@@ -40,13 +42,14 @@
   </div>
 </main>
 <script>
-  // ?telepit: stay here so the page can be added to the home screen; the saved address
-  // is the clean one, which opens the tool straight away.
-  if (/[?&]telepit/.test(location.search)) {
-    history.replaceState(null, "", location.pathname);
-    document.getElementById("tipp").hidden = false;
-    document.getElementById("uzenet").textContent = "Tedd ki ezt az oldalt a kezdőképernyőre.";
-  } else {
+  // Only an icon launch (home-screen web app) goes straight on. In a normal
+  // browser tab the page stays, so the tablet saves this page and its icon.
+  const app = navigator.standalone === true ||
+    ["standalone", "minimal-ui", "fullscreen"].some((m) => matchMedia("(display-mode: " + m + ")").matches);
+  if (location.search) history.replaceState(null, "", location.pathname);
+  if (app) {
+    document.getElementById("tipp").hidden = true;
+    document.getElementById("uzenet").textContent = "Megnyitás folyamatban…";
     location.replace("https://claude.ai/artifact/NCpvo3PnQ3RqNpRcv4w6VD");
   }
 </script>

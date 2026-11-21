@@ -5,7 +5,7 @@
   "lang": "hu",
   "start_url": "./arfigyelo.html",
   "scope": "./arfigyelo.html",
-  "display": "minimal-ui",
+  "display": "standalone",
   "background_color": "#0d3520",
   "theme_color": "#0d3520",
   "icons": [

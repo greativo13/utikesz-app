@@ -5,7 +5,7 @@
   "lang": "hu",
   "start_url": "./studio.html",
   "scope": "./studio.html",
-  "display": "minimal-ui",
+  "display": "standalone",
   "background_color": "#0d3520",
   "theme_color": "#0d3520",
   "icons": [
