@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#155a3e"/><stop offset="1" stop-color="#0d3f2b"/></linearGradient><linearGradient id="cr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8efdb"/><stop offset="1" stop-color="#eadcbc"/></linearGradient></defs><rect width="512" height="512" rx="112" fill="url(#bg)"/><rect x="22" y="22" width="468" height="468" rx="94" fill="none" stroke="#c29d5c" stroke-width="3"/>
+ <g transform="translate(256 250) rotate(-12)">
+  <path d="M-170 -96 H170 V-30 a30 30 0 0 0 0 60 V96 H-170 V30 a30 30 0 0 0 0 -60 Z" fill="#082d1e" opacity=".45" transform="translate(8 12)"/>
+  <path d="M-170 -96 H170 V-30 a30 30 0 0 0 0 60 V96 H-170 V30 a30 30 0 0 0 0 -60 Z" fill="url(#cr)" stroke="#0d3520" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M-170 -96 H170 V-52 H-170 Z" fill="#c29d5c" stroke="#0d3520" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M70 -52 V96" stroke="#0d3520" stroke-width="4" stroke-dasharray="10 9"/>
+  <g transform="translate(-56 18) rotate(0)" fill="#155a3e">
+   <path d="M-70 0 C-70 -8 -60 -12 -52 -12 H40 L74 -50 H94 L76 -12 H96 C106 -12 112 -6 112 0 C112 6 106 12 96 12 H76 L94 50 H74 L40 12 H-52 C-60 12 -70 8 -70 0Z" transform="scale(.9)"/>
+   <path d="M-56 -12 L-74 -38 H-60 L-30 -12Z M-56 12 L-74 38 H-60 L-30 12Z" transform="scale(.9)"/>
+  </g>
+  <g transform="translate(122 22)" stroke="#155a3e" stroke-width="9" stroke-linecap="round" fill="none"><path d="M0 -34 V30 M-20 12 L0 32 L20 12"/></g>
+ </g>
+ <g transform="translate(372 378)">
+  <circle r="66" fill="#0d3520" stroke="#f3ead8" stroke-width="8"/>
+  <text y="22" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="64" fill="#c29d5c">Ft</text>
+ </g>
+</svg>

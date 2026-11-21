@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Árfigyelő</title>
+<meta name="apple-mobile-web-app-title" content="Árfigyelő">
+<meta name="theme-color" content="#0d3520">
+<link rel="icon" href="./icon-arfigyelo-192.png" type="image/png">
+<link rel="apple-touch-icon" href="./apple-touch-icon-arfigyelo.png">
+<link rel="manifest" href="./manifest-arfigyelo.webmanifest">
+<style>
+  body { margin:0; min-height:100vh; display:grid; place-items:center; background:#0d3520; color:#f3ead8;
+         font:16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; text-align:center; padding:24px; box-sizing:border-box; }
+  img { width:120px; height:120px; border-radius:26px; box-shadow:0 8px 24px rgba(0,0,0,.3); }
+  h1 { font:600 26px/1.2 Georgia, serif; margin:18px 0 6px; }
+  p { margin:6px auto; max-width:30em; color:#d9cfb8; }
+  a.gomb { display:inline-block; margin-top:16px; background:#c29d5c; color:#0d3520; font-weight:700;
+           text-decoration:none; padding:12px 24px; border-radius:99px; }
+  .tipp { margin-top:22px; font-size:14px; text-align:left; background:rgba(255,255,255,.06); border:1px solid rgba(194,157,92,.5);
+          border-radius:14px; padding:12px 16px; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <img src="./icon-arfigyelo-512.png" alt="">
+  <h1>Útikész Árfigyelő</h1>
+  <p id="uzenet">Megnyitás folyamatban…</p>
+  <a class="gomb" href="https://claude.ai/artifact/1HWVvuNCMLovELRaegBgSB">Megnyitás</a>
+  <div class="tipp" id="tipp" hidden>
+    <b>Kitétel a kezdőképernyőre</b><br>
+    iPad: Safari → Megosztás (négyzet nyíllal) → <i>Főképernyőhöz adás</i>.<br>
+    Android: Chrome → ⋮ menü → <i>Hozzáadás a kezdőképernyőhöz</i>.<br>
+    Utána az ikonra koppintva egyből megnyílik. Ugyanebben a böngészőben légy belépve a claude.ai-ra.
+  </div>
+</main>
+<script>
+  // ?telepit: stay here so the page can be added to the home screen; the saved address
+  // is the clean one, which opens the tool straight away.
+  if (/[?&]telepit/.test(location.search)) {
+    history.replaceState(null, "", location.pathname);
+    document.getElementById("tipp").hidden = false;
+    document.getElementById("uzenet").textContent = "Tedd ki ezt az oldalt a kezdőképernyőre.";
+  } else {
+    location.replace("https://claude.ai/artifact/1HWVvuNCMLovELRaegBgSB");
+  }
+</script>
+</body>
+</html>
