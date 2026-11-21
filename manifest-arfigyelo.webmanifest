@@ -5,11 +5,27 @@
   "lang": "hu",
   "start_url": "./arfigyelo.html",
   "scope": "./arfigyelo.html",
-  "display": "browser",
+  "display": "minimal-ui",
   "background_color": "#0d3520",
   "theme_color": "#0d3520",
   "icons": [
-    { "src": "icon-arfigyelo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icon-arfigyelo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+    {
+      "src": "arfigyelo-ikon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "arfigyelo-ikon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "arfigyelo-ikon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }
