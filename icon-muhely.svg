@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+ <defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#155a3e"/><stop offset="1" stop-color="#0d3f2b"/></linearGradient>
+  <linearGradient id="case" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8efdb"/><stop offset="1" stop-color="#eadcbc"/></linearGradient>
+ </defs>
+ <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+ <rect x="22" y="22" width="468" height="468" rx="94" fill="none" stroke="#c29d5c" stroke-width="3"/>
+ <!-- shadow -->
+ <rect x="108" y="162" width="308" height="226" rx="20" fill="#082d1e" opacity=".45" transform="translate(6 10)"/>
+ <!-- handle -->
+ <path d="M196 158v-22a24 24 0 0 1 24-24h72a24 24 0 0 1 24 24v22" fill="none" stroke="#0d3520" stroke-width="22" stroke-linecap="round"/>
+ <path d="M196 158v-22a24 24 0 0 1 24-24h72a24 24 0 0 1 24 24v22" fill="none" stroke="#efe2c4" stroke-width="12" stroke-linecap="round"/>
+ <rect x="182" y="150" width="30" height="16" rx="4" fill="#c29d5c" stroke="#0d3520" stroke-width="4"/>
+ <rect x="300" y="150" width="30" height="16" rx="4" fill="#c29d5c" stroke="#0d3520" stroke-width="4"/>
+ <!-- feet -->
+ <rect x="138" y="378" width="30" height="20" rx="8" fill="#efe2c4" stroke="#0d3520" stroke-width="4"/>
+ <rect x="344" y="378" width="30" height="20" rx="8" fill="#efe2c4" stroke="#0d3520" stroke-width="4"/>
+ <!-- body -->
+ <rect x="104" y="162" width="304" height="224" rx="20" fill="url(#case)" stroke="#0d3520" stroke-width="5"/>
+ <path d="M106 268h300" stroke="#d6c39b" stroke-width="3"/>
+ <path d="M106 274h300" stroke="#fbf5e6" stroke-width="2"/>
+ <!-- corners -->
+ <g fill="#c29d5c" stroke="#0d3520" stroke-width="4" stroke-linejoin="round">
+  <path d="M104 210v-28a20 20 0 0 1 20-20h28v20a8 8 0 0 1-8 8h-20a0 0 0 0 0 0 0v20z"/>
+  <path d="M408 210v-28a20 20 0 0 0-20-20h-28v20a8 8 0 0 0 8 8h20v20z"/>
+  <path d="M104 338v28a20 20 0 0 0 20 20h28v-20a8 8 0 0 0-8-8h-20v-20z"/>
+  <path d="M408 338v28a20 20 0 0 1-20 20h-28v-20a8 8 0 0 1 8-8h20v-20z"/>
+ </g>
+ <!-- ruler -->
+ <g transform="translate(256 274) rotate(-40) scale(.84)">
+  <rect x="-132" y="-19" width="264" height="38" rx="4" fill="#c99f5a" stroke="#0d3520" stroke-width="5"/>
+  <g stroke="#0d3520" stroke-width="3" stroke-linecap="round">
+   <path d="M-112 -19v10M-100 -19v16M-88 -19v10M-76 -19v10M-64 -19v16M-52 -19v10M-40 -19v10M-28 -19v16M28 -19v16M40 -19v10M52 -19v10M64 -19v16M76 -19v10M88 -19v10M100 -19v16M112 -19v10"/>
+  </g>
+ </g>
+ <!-- pencil -->
+ <g transform="translate(256 274) rotate(40) scale(.84)">
+  <path d="M-96 -18 H92 a18 18 0 0 1 0 36 H-96 Z" fill="#f6ecd5" stroke="#0d3520" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M-96 -6H88M-96 6H88" stroke="#ddcaa2" stroke-width="3"/>
+  <path d="M62 -18v36M72 -18v36" stroke="#0d3520" stroke-width="4"/>
+  <path d="M-96 -18 L-140 0 L-96 18 Z" fill="#e7d3a6" stroke="#0d3520" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M-124 -6.5 L-140 0 L-124 6.5 Z" fill="#0d3520"/>
+ </g>
+</svg>
