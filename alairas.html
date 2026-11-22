@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Útikész – e-mail-aláírás</title>
+<link rel="icon" href="./brand-logo.png" type="image/png">
+<style>
+  body { margin:0; background:#f6f3ea; color:#203e32; font:16px/1.5 Arial, Helvetica, sans-serif; padding:32px 16px; }
+  main { max-width:640px; margin:0 auto; }
+  h1 { font:400 28px/1.2 Georgia, serif; margin:0 0 8px; }
+  .box { background:#fff; border:1px solid #d9d0bb; border-radius:12px; padding:24px; margin:20px 0; }
+  button { font:600 15px Arial, sans-serif; background:#0d3520; color:#fbf5e9; border:0; border-radius:8px; padding:12px 22px; cursor:pointer; }
+  ol { padding-left:20px; } li { margin:6px 0; }
+  .ok { color:#1d7a46; font-weight:600; margin-left:12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Útikész e-mail-aláírás</h1>
+  <p>Kattints a gombra, majd illeszd be a Gmail aláírás-mezőjébe (Ctrl+V).</p>
+
+  <div class="box" id="alairas"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#113b27;">
+<tr>
+<td style="padding:0 14px 0 0;vertical-align:middle;"><img src="https://greativo13.github.io/utikesz-app/icon-192.png" width="64" height="64" alt="Útikész" style="display:block;width:64px;height:64px;border:0;"></td>
+<td style="width:2px;background:#c9a75e;padding:0;font-size:1px;line-height:1px;">&nbsp;</td>
+<td style="padding:0 0 0 14px;vertical-align:middle;">
+<div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:24px;color:#113b27;">Gergő</div>
+<div style="font-size:12px;line-height:17px;color:#113b27;">Útikész – városkalauzok és személyre szabott útitervek</div>
+<div style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:13px;line-height:19px;color:#a68a45;">A te utazásod. A te tempód.</div>
+<div style="font-size:12px;line-height:18px;color:#113b27;"><a href="mailto:hello@utikesz.hu" style="color:#113b27;text-decoration:none;">hello@utikesz.hu</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://greativo13.github.io/utikesz-app/honlap.html" style="color:#113b27;text-decoration:none;">utikesz.hu</a></div>
+</td>
+</tr>
+</table></div>
+
+  <button id="masol">Aláírás másolása</button><span class="ok" id="kesz" hidden>Kimásolva ✓</span>
+
+  <ol>
+    <li>Gmail → fogaskerék → <b>Az összes beállítás megtekintése</b> → <b>Általános</b> → <b>Aláírás</b>.</li>
+    <li>Az „Útikész” aláírás mezőjéből töröld a régi képet, majd illeszd be (Ctrl+V).</li>
+    <li>Lent: <b>Módosítások mentése</b>.</li>
+  </ol>
+</main>
+<script>
+  document.getElementById("masol").onclick = async () => {
+    const el = document.getElementById("alairas");
+    try {
+      const html = el.innerHTML;
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([html], { type: "text/html" }),
+        "text/plain": new Blob([el.innerText], { type: "text/plain" }),
+      })]);
+    } catch {
+      const r = document.createRange(); r.selectNodeContents(el);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      document.execCommand("copy"); s.removeAllRanges();
+    }
+    document.getElementById("kesz").hidden = false;
+  };
+</script>
+</body>
+</html>
